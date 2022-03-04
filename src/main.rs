@@ -57,7 +57,8 @@ fn game_loop( answer : &str, legal_set : HashSet<&str> ) {
       .with_prompt("Guess a 5 letter word")
       .interact_text()
       .unwrap(); 
-    let guess : &str = input.as_str(); // trim and lowercase
+    let guess  = input.trim().to_lowercase(); // trim and lowercase
+    let guess: &str = guess.as_str(); 
     let mut answer_freq : HashMap<u8, i8> = build_frequency(answer); 
     
     if guess.len() != WORD_LENGTH {
